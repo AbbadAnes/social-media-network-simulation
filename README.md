@@ -34,7 +34,7 @@ S : Des personne standard qui fréquentent les réseaux sociaux pour différente
 -> la liste des demandes contient toutes les invitations envoyées par le sommet en question.
 -> la liste de réception contient toutes les invitations reçues par le sommet en question.
 
-<br><br>
+<br>
 
 ```Mathematica
 

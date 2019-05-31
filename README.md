@@ -2,45 +2,44 @@
 <p align="center">
   <img src="https://storage.googleapis.com/kainofreelancerpictures/anes/sma.png" width="50%" title="logo">
 </p>
-Le but de ce projet est de modéliser un petit réseau social en utilisant les techniques de la théorie de jeux.
-Ce réseau social qui est constitué principalement d'individus voulant établir des liens entre eux pour des intérêts  personnels ou professionnels. La connexion produite après l'établissement  d'un lien entre deux individus fait changer la structure du réseau social et le fait évoluer grâce  à quelques actions permises dans le réseau comme :
+The goal of this project is to model a small social network using the techniques of game theory.
+This social network which consists mainly of individuals wanting to establish links between them for personal or professional interests. The connection produced after the establishment of a link between two individuals makes change the structure of the social network and makes it evolve thanks to some actions allowed in the network like:
 <br>
-- Ajouter une personne
+- Add a friend
 <br>
-- Accepter / refuser une personne
+- accept / reject a friend
 <br>
-- Supprimer un lien d'amitier
+- delete friendshipe link
 <br>
-Les utilisateurs du réseau utilisent ces actions pour améliorer leurs gains selon différentes politiques pour chaque population dans le réseau.
+Network users using these actions to improve their earnings according to different policies for each population in the network.
 
 
 
-<h2> Outils : </h2>
+<h2> Tools : </h2>
 Walforme Mathematica
 
-<h2>Définition du Réseau</h2>
-Soit  « Population » un graphe qui représente une population constituée des : Utilisateurs standards, Riches et Célèbres.
-Tel que : chaque sommet du graphe "population" représente un utilisateur. Et les liens entre les sommets représentent la connexion entre deux utilisateurs. 
-Un utilisateur est identifié par:
+<h2>Network definition</h2>
+Let "Population" be a graph representing a population consisting of: Standard, Rich and Famous Users.
+As: each vertex of the population graph represents a user. And the links between the vertices represent the connection between two users.
+A user is identified by:
 <br>
-Id, Type, Gain, Liste des demande,s Liste des invitations reçus
+Id, Type, Gain, Request List, List of Invitations Received
 <br>
--> le ID est un identifiant unique qui représente l'individu  dans le réseau.
+-> the ID is a unique identifier that represents the individual in the network.
 <br>
--> Type est la population de l'utilisateur ça peut être  :
+-> Type is the population of the user it can be:
 <br>
-C : Un peu "Célèbre" souvent ils étaient des personnes standards et à force de se connecter avec beaucoup de gens ils sont devenu célèbre, ce type de population est connu dans quelques réseaux sociaux comme Facebook et Instagram sous le nom "influenceurs".
+C: A little "Famous" often they were standard people and by dint of connecting with a lot of people they became famous, this type of population is known in some social networks like Facebook and Instagram under the name "influencers".
 <br>
-Cb : Célèbre de type B souvent des super stars qui fréquentent les réseaux sociaux pour être plus proches de leurs fans .
+Cb: Famous type B often super stars who frequent social networks to be closer to their fans.
 <br>
-R : Des personnes "Riche" ils utilisent les réseaux sociaux pour trouver des opportunités financières comme par exemple trouver un célèbre pour faire la promotion de leurs produits.
+A: "Rich" people use social networks to find financial opportunities such as finding a famous one to promote their products.
 <br>
-S : Des personne standard qui fréquentent les réseaux sociaux pour différentes raisons :  trouver des amis, devenir célèbre ou juste un passe-temps.
+S: Standard people who frequent social networks for different reasons: finding friends, becoming famous or just a hobby.
 <br>
--> la liste des demandes contient toutes les invitations envoyées par le sommet en question.
+-> the list of requests contains all the invitations sent by the summit in question.
 <br>
--> la liste de réception contient toutes les invitations reçues par le sommet en question.
-
+-> the reception list contains all the invitations received by the summit in question.
 <br><br>
 
 ```Mathematica
@@ -87,26 +86,26 @@ population = SetProperty[population, VertexLabels -> {i -> Part[m, 1]}];];
 ```
 
 <br>
-Ainsi nous obtenons notre réseau initial  :
+So we get our initial network:
 
 <p align="center">
   <img src="https://storage.googleapis.com/kainofreelancerpictures/anes/network.png" width="50%" title="logo">
 </p>
 
-<h2>Politique</h2>
-Chaque type de population suit une stratégie pour améliorer le gain. surtout pour accepter une invitation de connexion.
-Chaque utilisateur doit  s'assurer que le nouvel lien établi avec un individu est utile pour améliorer son gain.
-Nous avons définis la fonction "Accepte" afin d'implémenter notre politique de gain.
+<h2> Policy </ h2>
+Each type of population follows a strategy to improve the gain. especially to accept a login invitation.
+Each user must make sure that the new link established with an individual is useful to improve his gain.
+We have defined the "Accept" function in order to implement our winning policy.
 <br>
-En effet  elle prend en paramètre deux individus x et y tel que : x a reçu une invitation de y , et elle retourne si x devrait accepter l'invitation de y en respectant les règles suivantes : 
+Indeed it takes in parameter two individuals x and y such that: x has received an invitation from y, and it returns if x should accept the invitation to respect the following rules:
 <br>
--  Un individu de la population "C "(Célèbre)  peut accepter les individus qui sont de population "R" (Riche) et "Cb" (Célèbre de type béta).
+- An individual of the "C" population (Famous) can accept individuals who are of population "R" (Rich) and "Cb" (Famous of type beta).
 <br>
-- Un individu de la population "Cb"(Célèbre de type béta)  peux accepter les individus qui sont de population "R" (Riche) , "C" (Célèbre) et ceux de type "S" ( Standard)
+- An individual of the population "Cb" (Famous of type beta) can accept the individuals who are of population "R" (Rich), "C" (Famous) and those of type "S" (Standard)
 <br>
-- Un individu de la population "R"(Riche)  peux accepter les individus qui sont de population "Cb" (Célèbre de type béta), "C" (Célèbre) et ceux de type "S" (Standard) dont leurs gain est supérieur à 10
+- An individual of the "R" (Rich) population can accept individuals who are of "Cb" (Famous Beta), "C" (Famous) and "S" (Standard) type whose gain is greater than 10
 <br>
-- Et enfin la population "S" peut accepter tous les individus.
+- And finally the population "S" can accept all individuals.
 
 
 
@@ -118,7 +117,7 @@ Which[Part[x,1]=="C"&& Part[y,1]=="Cb",u:= r+ 1,Part[x,1]=="C"&& Part[y,1]=="C",
 ```
 
 <br>
-Après chaque lien établi on doit impérativement mettre à jour le gain des deux individus
+After each link established it is imperative to update the gain of the two individuals.
 <br><br>
 
 
@@ -129,10 +128,10 @@ NewGain[x_,n_]:= Module[{r,u},\[IndentingNewLine]Which[x=="R",u:=Part[n,2]+2,x==
 
 ```
 <br>
-<h2>Envoi des invitations</h2>
-Comme nous avons mentionné plus haut chaque individu dans le réseau cherche à améliorer son gain. peu importe le type de la population et sa politique de gain. Établir  de nouveaux lien avec des utilisateur peut que améliorer le gain. 
-Pour cela chaque utilisateur envoit des invitations de connexion à chaque utilisateur qui possède un gain supérieur ou égale à son gain.
-ainsi chaque utilisateur assure une bonne qualité de lien avec ces futurs amis.
+<h2> Sending invitations </ h2>
+As we mentioned earlier each individual in the network is looking to improve his gain. regardless of the type of population and its winning policy. Establishing new links with users can only improve the gain.
+For this, each user sends login invitations to each user who has a gain greater than or equal to his gain.
+thus each user ensures a good quality of link with these future friends.
 <br><br>
 
 ``` Mathematica
@@ -161,9 +160,9 @@ l = {PropertyValue[ {population, 1}, VertexWeight],
 
 
 <br>
-<h2>Accepter les invitations:</h2>
-Après l'étape d'envois des invitations , il est temps d'accepter les invitations reçus.
-Cette fois chaque type de population suit une logique différente  des autres comme nous avons mentionnés dans la section politique de gain afin d'améliorer son gain ou satisfaire ses intérêts  personnels ou professionnel.
+<h2> Accept invitations: </ h2>
+After the send-out stage, it's time to accept the invitations received.
+This time each type of population follows a logic different from the others as we mentioned in the political section of gain in order to improve their gain or satisfy their personal or professional interests.
 <br><br>
 
 ``` Mathematica
@@ -191,8 +190,8 @@ For[i = 1, i <= Length [receptionList], i++,
 
 
 <br>
-<h2>Suppression : </h2>
-il est des fois nécessaire de supprimer quelques lien de connexions si par exemple le Seuil de nombre maximal d'amis est atteint et nous voulons se connecter avec d'autres personnes avec lesquels nous avons plus d'intérêts.
+<h2> Delete a link </h2>
+it's sometimes necessary to delete some connection links if for example the Threshold of maximum number of friends is reached and we want to connect with other people with whom we have more interests.
 <br><br>
 
 ``` Mathematica
@@ -218,8 +217,8 @@ For[i = 0, i <= Length [arcd],i++, m= Part[l2,Part[arcd,i]];If[Part[m,2]<monGain
 
 <br>
 
-<h2>Évolution</h2>
-Enfin il est temps de voir l'évolution du réseau après les différentes actions réalisés par les utilisateurs.
+<h2>Evolution</h2>
+Finally it is time to see the evolution of the network after the various actions performed by users.
 <br>
 
 ``` Mathematica
@@ -236,10 +235,10 @@ BigFilm = Join[film1,film2];
 </p>
 
 
-<h2>Comment utiliser le code ?</h2>
-créez un notbook mathematica copier coller les parties de code dans l'orde et executer au fur et a mesure puis suivre l'évolution du réseau. 
-<h2>Contribution et Remerciement</h2>
-<h3>Projet réalisé par :</h3>
+<h2> How to use the code? </ h2>
+create a notbook mathematica copy paste the parts of code in the orde and execute as and then follow the evolution of the network.
+<h2> Contribution and Acknowledgment </ h2>
+<h3> Project realized by: </ h3>
 - Anes Abdelfatah ABBAD.
 <br>
 - Amira KETFI.

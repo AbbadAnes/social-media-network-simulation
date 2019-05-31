@@ -235,10 +235,10 @@ BigFilm = Join[film1,film2];
 </p>
 
 
-<h2> How to use the code? </ h2>
+<h2> How to use the code? </h2>
 create a notbook mathematica copy paste the parts of code in the orde and execute as and then follow the evolution of the network.
-<h2> Contribution and Acknowledgment </ h2>
-<h3> Project realized by: </ h3>
+<h2> Contribution and Acknowledgment </h2>
+<h3> Project realized by: </h3>
 - Anes Abdelfatah ABBAD.
 <br>
 - Amira KETFI.

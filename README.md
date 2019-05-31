@@ -159,6 +159,28 @@ Après l'étape d'envois des invitations , il est temps d'accepter les invitatio
 Cette fois chaque type de population suit une logique différente  des autres comme nous avons mentionnés dans la section politique de gain afin d'améliorer son gain ou satisfaire ses intérêts  personnels ou professionnel.
 <br>
 
+``` Mathematica
+EdgeToAdd = {};
+For[j = 1, j <= Length [l],j++,
+myProp = Part[l,j];
+receptionList = Part[myProp, 4];
+monGain = Part[myProp, 2];
+For[i = 1, i <= Length [receptionList], i++, 
+ m = Part[l, Part[receptionList, i]]; 
+ If[Accept[Part[myProp,1],Part[m,1]]==1,
+ myId = Part[myProp, 1];ID = Part[myId, 2];
+ SecondID = Part[m, 1]; SID = Part[SecondID, 2]; 
+ AppendTo[EdgeToAdd,ID <-> SID];
+ (* mettre à jour le gain et la population *)
+ population = SetProperty[{population,ID},VertexWeight -> info[id[Type[NewGain[Part[myId,1],myProp]],ID],NewGain[Part[myId,1],myProp],Part[myProp,3],Part[myProp,4] ] ];
+ population = SetProperty[{population,SID},VertexWeight ->  info[id[Type[NewGain[Part[SecondID,1],m]],SID],NewGain[Part[SecondID,1],m],Part[m,3],Part[m,4] ]];
+  ]
+  ]
+  ];
+  population=EdgeAdd[population, EdgeToAdd];
+
+```
+
 
 
 <br>

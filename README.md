@@ -211,6 +211,17 @@ For[i = 0, i <= Length [arcd],i++, m= Part[l2,Part[arcd,i]];If[Part[m,2]<monGain
 
 <br>
 
+<h2>Évolution</h2>
+Enfin il est temps de voir l'évolution du réseau après les différentes actions réalisés par les utilisateurs.
+
+``` Mathematica
+population = EdgeDelete[population,_];
+film1 = FoldList[ Function[{g, arc}, EdgeAdd[g, arc]], population, EdgeToAdd];
+population = EdgeAdd[population, EdgeToAdd];
+film2 = FoldList[ Function[{g, arc}, EdgeDelete[g, arc]], population, EdgeToDelete];
+BigFilm = Join[film1,film2];
+```
+
 <h2>Comment utiliser le code ?</h2>
 1. Clonez le projet et decompressez code.rar
 <br>

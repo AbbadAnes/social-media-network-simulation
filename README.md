@@ -3,7 +3,7 @@
   <img src="https://storage.googleapis.com/kainofreelancerpictures/anes/sma.png" width="50%" title="logo">
 </p>
 The goal of this project is to model a small social network using the techniques of game theory.
-This social network which consists mainly of individuals wanting to establish links between them for personal or professional interests. The connection produced after the establishment of a link between two individuals makes change the structure of the social network and makes it evolve thanks to some actions allowed in the network like:
+This social network which consists mainly of individuals wanting to establish links between them for personal or professional interests. The connection produced after the establishment of a link between two individuals change the structure of the social network by doing some actions allowed in the network like:
 <br>
 - Add a friend
 <br>
@@ -19,7 +19,7 @@ Network users using these actions to improve their earnings according to differe
 Walforme Mathematica
 
 <h2>Network definition</h2>
-Let "Population" be a graph representing a population consisting of: Standard, Rich and Famous Users.
+"Population" is a graph representing a population consisting of: Standard, Rich and Famous Users.
 As: each vertex of the population graph represents a user. And the links between the vertices represent the connection between two users.
 A user is identified by:
 <br>
@@ -29,13 +29,13 @@ Id, Type, Gain, Request List, List of Invitations Received
 <br>
 -> Type is the population of the user it can be:
 <br>
-C: A little "Famous" often they were standard people and by dint of connecting with a lot of people they became famous, this type of population is known in some social networks like Facebook and Instagram under the name "influencers".
+C: A little "Famous" often they were standard peoples and by dint of connecting with a lot of peoples they became famous, this type of population is known in some social networks like Facebook and Instagram by the name of "influencers".
 <br>
-Cb: Famous type B often super stars who frequent social networks to be closer to their fans.
+Cb: Famous type B, super stars who frequent social networks to be closer to their fans.
 <br>
-A: "Rich" people use social networks to find financial opportunities such as finding a famous one to promote their products.
+A: "Rich" people they use social networks to find financial opportunities such as finding a famous person to promote their products.
 <br>
-S: Standard people who frequent social networks for different reasons: finding friends, becoming famous or just a hobby.
+S: Standard people who frequent social networks for different reasons: finding friends, becoming famous or just for fun.
 <br>
 -> the list of requests contains all the invitations sent by the summit in question.
 <br>
@@ -93,7 +93,7 @@ So we get our initial network:
 </p>
 
 <h2> Policy </h2>
-Each type of population follows a strategy to improve the gain. especially to accept a login invitation.
+Each type of population follows a strategy to improve the gain. especially to accept invitations.
 Each user must make sure that the new link established with an individual is useful to improve his gain.
 We have defined the "Accept" function in order to implement our winning policy.
 <br>
@@ -117,7 +117,7 @@ Which[Part[x,1]=="C"&& Part[y,1]=="Cb",u:= r+ 1,Part[x,1]=="C"&& Part[y,1]=="C",
 ```
 
 <br>
-After each link established it is imperative to update the gain of the two individuals.
+After each link established we must update the gain of the two individuals.
 <br><br>
 
 
@@ -130,7 +130,7 @@ NewGain[x_,n_]:= Module[{r,u},\[IndentingNewLine]Which[x=="R",u:=Part[n,2]+2,x==
 <br>
 <h2> Sending invitations </h2>
 As we mentioned earlier each individual in the network is looking to improve his gain. regardless of the type of population and its winning policy. Establishing new links with users can only improve the gain.
-For this, each user sends login invitations to each user who has a gain greater than or equal to his gain.
+For this, each user sends invitations to each user who has a gain greater than or equal to his gain.
 thus each user ensures a good quality of link with these future friends.
 <br><br>
 
@@ -218,7 +218,7 @@ For[i = 0, i <= Length [arcd],i++, m= Part[l2,Part[arcd,i]];If[Part[m,2]<monGain
 <br>
 
 <h2>Evolution</h2>
-Finally it is time to see the evolution of the network after the various actions performed by users.
+Finally it's time to see the evolution of the network after the various actions performed by users.
 <br>
 
 ``` Mathematica
@@ -236,8 +236,8 @@ BigFilm = Join[film1,film2];
 
 
 <h2> How to use the code? </h2>
-create a notbook mathematica copy paste the parts of code in the orde and execute as and then follow the evolution of the network.
-<h2> Contribution and Acknowledgment </h2>
+create a mathematica notbook, copy paste the code in the correct orde and execute it, follow the evolution of the network.
+<h2> Contribution</h2>
 <h3> Project realized by: </h3>
 - Anes Abdelfatah ABBAD.
 <br>

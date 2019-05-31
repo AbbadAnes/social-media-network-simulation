@@ -34,7 +34,7 @@ S : Des personne standard qui fréquentent les réseaux sociaux pour différente
 -> la liste des demandes contient toutes les invitations envoyées par le sommet en question.
 -> la liste de réception contient toutes les invitations reçues par le sommet en question.
 
-<br><br><br><br>
+<br><br>
 
 ```Mathematica
 
@@ -103,7 +103,7 @@ En effet  elle prend en paramètre deux individus x et y tel que : x a reçu une
 
 
 
-<br><br><br>
+<br><br>
 
 ```Mathematica
 Accept[x_,y_]:=Module[{u},With[{r=0},u=r; 
@@ -186,7 +186,7 @@ For[i = 1, i <= Length [receptionList], i++,
 <br>
 <h2>Suppression : </h2>
 il est des fois nécessaire de supprimer quelques lien de connexions si par exemple le Seuil de nombre maximal d'amis est atteint et nous voulons se connecter avec d'autres personnes avec lesquels nous avons plus d'intérêts.
-<br>
+<br><br>
 
 ``` Mathematica
 EdgeToDelete = {};

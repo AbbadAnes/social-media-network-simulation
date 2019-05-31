@@ -230,11 +230,7 @@ BigFilm = Join[film1,film2];
 
 
 <h2>Comment utiliser le code ?</h2>
-1. Clonez le projet et decompressez code.rar
-<br>
-2. Dans le dossier Dataset vous trouverez les dataset du projet
-<br>
-3. vous trouvez un fichier code.py pour visualiser les données et toutes les étapes de la réalisation du projet.
+créez un notbook mathematica copier coller les parties de code dans l'orde et executer au fur et a mesure puis suivre l'évolution du réseau. 
 <h2>Contribution et Remerciement</h2>
 <h3>Projet réalisé par :</h3>
 - Anes Abdelfatah ABBAD.

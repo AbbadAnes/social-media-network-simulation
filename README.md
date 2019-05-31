@@ -26,15 +26,22 @@ Un utilisateur est identifié par:
 Id, Type, Gain, Liste des demande,s Liste des invitations reçus
 <br>
 -> le ID est un identifiant unique qui représente l'individu  dans le réseau.
+<br>
 -> Type est la population de l'utilisateur ça peut être  :
+<br>
 C : Un peu "Célèbre" souvent ils étaient des personnes standards et à force de se connecter avec beaucoup de gens ils sont devenu célèbre, ce type de population est connu dans quelques réseaux sociaux comme Facebook et Instagram sous le nom "influenceurs".
+<br>
 Cb : Célèbre de type B souvent des super stars qui fréquentent les réseaux sociaux pour être plus proches de leurs fans .
+<br>
 R : Des personnes "Riche" ils utilisent les réseaux sociaux pour trouver des opportunités financières comme par exemple trouver un célèbre pour faire la promotion de leurs produits.
+<br>
 S : Des personne standard qui fréquentent les réseaux sociaux pour différentes raisons :  trouver des amis, devenir célèbre ou juste un passe-temps.
+<br>
 -> la liste des demandes contient toutes les invitations envoyées par le sommet en question.
+<br>
 -> la liste de réception contient toutes les invitations reçues par le sommet en question.
 
-<br>
+<br><br>
 
 ```Mathematica
 

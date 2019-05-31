@@ -128,13 +128,37 @@ Pour cela chaque utilisateur envoit des invitations de connexion à chaque utili
 ainsi chaque utilisateur assure une bonne qualité de lien avec ces futurs amis.
 <br>
 
+``` Mathematica
+For[k=1,k<= Length[l],k++,
+myProp = Part[l,k];
+For[j=1,j<= Length[l],j++,
+individue = Part[l,j];
+If[Part[individue,2] > Part[myProp,2],
+population= SetProperty[{population, k}, VertexWeight -> Info[Part[myProp,1], Part[myProp,2],Insert[Part[myProp,3],j,-1],Part[myProp,4]]];
+population = SetProperty[{population, j}, VertexWeight -> Info[Part[individue,1], Part[individue,2], Part[individue,3],Insert[Part[individue,4],k,-1]]];
+l = {PropertyValue[ {population, 1}, VertexWeight], 
+  PropertyValue[ {population, 2}, VertexWeight], 
+  PropertyValue[ {population, 3}, VertexWeight], 
+  PropertyValue[ {population, 4}, VertexWeight],
+  PropertyValue[ {population, 5}, VertexWeight],
+  PropertyValue[ {population, 6}, VertexWeight],
+  PropertyValue[ {population, 7}, VertexWeight],
+  PropertyValue[ {population, 8}, VertexWeight],
+  PropertyValue[ {population, 9}, VertexWeight],
+  PropertyValue[ {population, 10}, VertexWeight]};
+]
+]
+]
+
+```
+
 
 <br>
 <h2>Accepter les invitations:</h2>
 Après l'étape d'envois des invitations , il est temps d'accepter les invitations reçus.
 Cette fois chaque type de population suit une logique différente  des autres comme nous avons mentionnés dans la section politique de gain afin d'améliorer son gain ou satisfaire ses intérêts  personnels ou professionnel.
 <br>
-```Mathematica
+``` Mathematica
 EdgeToAdd = {};
 For[j = 1, j <= Length [l],j++,
 myProp = Part[l,j];
@@ -161,7 +185,7 @@ For[i = 1, i <= Length [receptionList], i++,
 <h2>Suppression : </h2>
 il est des fois nécessaire de supprimer quelques lien de connexions si par exemple le Seuil de nombre maximal d'amis est atteint et nous voulons se connecter avec d'autres personnes avec lesquels nous avons plus d'intérêts.
 <br>
-```Mathematica
+``` Mathematica
 EdgeToDelete = {};
 l2 = {PropertyValue[ {population, 1}, VertexWeight], 
   PropertyValue[ {population, 2}, VertexWeight], 

@@ -92,7 +92,7 @@ So we get our initial network:
   <img src="https://storage.googleapis.com/kainofreelancerpictures/anes/network.png" width="50%" title="logo">
 </p>
 
-<h2> Policy </ h2>
+<h2> Policy </h2>
 Each type of population follows a strategy to improve the gain. especially to accept a login invitation.
 Each user must make sure that the new link established with an individual is useful to improve his gain.
 We have defined the "Accept" function in order to implement our winning policy.
@@ -128,7 +128,7 @@ NewGain[x_,n_]:= Module[{r,u},\[IndentingNewLine]Which[x=="R",u:=Part[n,2]+2,x==
 
 ```
 <br>
-<h2> Sending invitations </ h2>
+<h2> Sending invitations </h2>
 As we mentioned earlier each individual in the network is looking to improve his gain. regardless of the type of population and its winning policy. Establishing new links with users can only improve the gain.
 For this, each user sends login invitations to each user who has a gain greater than or equal to his gain.
 thus each user ensures a good quality of link with these future friends.
@@ -160,7 +160,7 @@ l = {PropertyValue[ {population, 1}, VertexWeight],
 
 
 <br>
-<h2> Accept invitations: </ h2>
+<h2> Accept invitations: </h2>
 After the send-out stage, it's time to accept the invitations received.
 This time each type of population follows a logic different from the others as we mentioned in the political section of gain in order to improve their gain or satisfy their personal or professional interests.
 <br><br>

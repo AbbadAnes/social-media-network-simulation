@@ -127,29 +127,7 @@ Comme nous avons mentionné plus haut chaque individu dans le réseau cherche à
 Pour cela chaque utilisateur envoit des invitations de connexion à chaque utilisateur qui possède un gain supérieur ou égale à son gain.
 ainsi chaque utilisateur assure une bonne qualité de lien avec ces futurs amis.
 <br>
-```Mathematica
-For[k=1,k<= Length[l],k++,
-myProp = Part[l,k];
-For[j=1,j<= Length[l],j++,
-individue = Part[l,j];
-If[Part[individue,2] > Part[myProp,2],
-population= SetProperty[{population, k}, VertexWeight -> Info[Part[myProp,1], Part[myProp,2],Insert[Part[myProp,3],j,-1],Part[myProp,4]]];
-population = SetProperty[{population, j}, VertexWeight -> Info[Part[individue,1], Part[individue,2], Part[individue,3],Insert[Part[individue,4],k,-1]]];
-l = {PropertyValue[ {population, 1}, VertexWeight], 
-  PropertyValue[ {population, 2}, VertexWeight], 
-  PropertyValue[ {population, 3}, VertexWeight], 
-  PropertyValue[ {population, 4}, VertexWeight],
-  PropertyValue[ {population, 5}, VertexWeight],
-  PropertyValue[ {population, 6}, VertexWeight],
-  PropertyValue[ {population, 7}, VertexWeight],
-  PropertyValue[ {population, 8}, VertexWeight],
-  PropertyValue[ {population, 9}, VertexWeight],
-  PropertyValue[ {population, 10}, VertexWeight]};
-]
-]
-]
 
-```
 
 <br>
 <h2>Accepter les invitations:</h2>

@@ -187,6 +187,7 @@ For[i = 1, i <= Length [receptionList], i++,
 <h2>Suppression : </h2>
 il est des fois nécessaire de supprimer quelques lien de connexions si par exemple le Seuil de nombre maximal d'amis est atteint et nous voulons se connecter avec d'autres personnes avec lesquels nous avons plus d'intérêts.
 <br>
+
 ``` Mathematica
 EdgeToDelete = {};
 l2 = {PropertyValue[ {population, 1}, VertexWeight], 
@@ -207,6 +208,7 @@ For[i = 0, i <= Length [arcd],i++, m= Part[l2,Part[arcd,i]];If[Part[m,2]<monGain
  ]
 ]
 ```
+
 <br>
 
 <h2>Comment utiliser le code ?</h2>

@@ -121,7 +121,89 @@ Type[x_]/; x>15&& x<20 := "R"\[IndentingNewLine]Type[x_]/;x> 20 := "C"\[Indentin
 NewGain[x_,n_]:= Module[{r,u},\[IndentingNewLine]Which[x=="R",u:=Part[n,2]+2,x=="S",u:=Part[n,2]+1,x=="C",u:=Part[n,2]+3,x=="Cb"&&Part[n,1]=="R",u=Part[n,2]+3+2,x=="Cb"&&Part[n,1]=="S",u=Part[n,2]+3+1,x=="Cb"&&Part[n,1]=="C",u=Part[n,2]+3+3];u];
 
 ```
+<br>
+<h2>Envoi des invitations</h2>
+Comme nous avons mentionné plus haut chaque individu dans le réseau cherche à améliorer son gain. peu importe le type de la population et sa politique de gain. Établir  de nouveaux lien avec des utilisateur peut que améliorer le gain. 
+Pour cela chaque utilisateur envoit des invitations de connexion à chaque utilisateur qui possède un gain supérieur ou égale à son gain.
+ainsi chaque utilisateur assure une bonne qualité de lien avec ces futurs amis.
+<br>
+```Mathematica
+For[k=1,k<= Length[l],k++,
+myProp = Part[l,k];
+For[j=1,j<= Length[l],j++,
+individue = Part[l,j];
+If[Part[individue,2] > Part[myProp,2],
+population= SetProperty[{population, k}, VertexWeight -> Info[Part[myProp,1], Part[myProp,2],Insert[Part[myProp,3],j,-1],Part[myProp,4]]];
+population = SetProperty[{population, j}, VertexWeight -> Info[Part[individue,1], Part[individue,2], Part[individue,3],Insert[Part[individue,4],k,-1]]];
+l = {PropertyValue[ {population, 1}, VertexWeight], 
+  PropertyValue[ {population, 2}, VertexWeight], 
+  PropertyValue[ {population, 3}, VertexWeight], 
+  PropertyValue[ {population, 4}, VertexWeight],
+  PropertyValue[ {population, 5}, VertexWeight],
+  PropertyValue[ {population, 6}, VertexWeight],
+  PropertyValue[ {population, 7}, VertexWeight],
+  PropertyValue[ {population, 8}, VertexWeight],
+  PropertyValue[ {population, 9}, VertexWeight],
+  PropertyValue[ {population, 10}, VertexWeight]};
+]
+]
+]
 
+```
+
+<br>
+<h2>Accepter les invitations:</h2>
+Après l'étape d'envois des invitations , il est temps d'accepter les invitations reçus.
+Cette fois chaque type de population suit une logique différente  des autres comme nous avons mentionnés dans la section politique de gain afin d'améliorer son gain ou satisfaire ses intérêts  personnels ou professionnel.
+<br>
+```Mathematica
+EdgeToAdd = {};
+For[j = 1, j <= Length [l],j++,
+myProp = Part[l,j];
+receptionList = Part[myProp, 4];
+monGain = Part[myProp, 2];
+For[i = 1, i <= Length [receptionList], i++, 
+ m = Part[l, Part[receptionList, i]]; 
+ If[Accept[Part[myProp,1],Part[m,1]]==1,
+ myId = Part[myProp, 1];ID = Part[myId, 2];
+ SecondID = Part[m, 1]; SID = Part[SecondID, 2]; 
+ AppendTo[EdgeToAdd,ID <-> SID];
+ (* mettre à jour le gain et la population *)
+ population = SetProperty[{population,ID},VertexWeight -> info[id[Type[NewGain[Part[myId,1],myProp]],ID],NewGain[Part[myId,1],myProp],Part[myProp,3],Part[myProp,4] ] ];
+ population = SetProperty[{population,SID},VertexWeight ->  info[id[Type[NewGain[Part[SecondID,1],m]],SID],NewGain[Part[SecondID,1],m],Part[m,3],Part[m,4] ]];
+  ]
+  ]
+  ];
+  population=EdgeAdd[population, EdgeToAdd];
+
+```
+
+
+<br>
+<h2>Suppression : </h2>
+il est des fois nécessaire de supprimer quelques lien de connexions si par exemple le Seuil de nombre maximal d'amis est atteint et nous voulons se connecter avec d'autres personnes avec lesquels nous avons plus d'intérêts.
+<br>
+```Mathematica
+EdgeToDelete = {};
+l2 = {PropertyValue[ {population, 1}, VertexWeight], 
+  PropertyValue[ {population, 2}, VertexWeight], 
+  PropertyValue[ {population, 3}, VertexWeight], 
+  PropertyValue[ {population, 4}, VertexWeight],
+  PropertyValue[ {population, 5}, VertexWeight],
+  PropertyValue[ {population, 6}, VertexWeight],
+  PropertyValue[ {population, 7}, VertexWeight],
+  PropertyValue[ {population, 8}, VertexWeight],
+  PropertyValue[ {population, 9}, VertexWeight],
+  PropertyValue[ {population, 10}, VertexWeight]};
+For[j = 1, j <= Length [l2],j++,myProp = Part[l,j];
+If[Part[myProp,2]>10,arcd=VertexList[NeighborhoodGraph[population, j]];
+arcd=Delete[arcd, 1];
+monGain = Part[myProp,2];
+For[i = 0, i <= Length [arcd],i++, m= Part[l2,Part[arcd,i]];If[Part[m,2]<monGain,myId=Part[myProp,1];myId=Part[myId,2];SecondID=Part[m,1];SecondID=Part[SecondID,2];AppendTo[EdgeToDelete,myId <-> SecondID]]];
+ ]
+]
+```
+<br>
 
 <h2>Comment utiliser le code ?</h2>
 1. Clonez le projet et decompressez code.rar

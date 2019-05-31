@@ -34,7 +34,7 @@ S : Des personne standard qui fréquentent les réseaux sociaux pour différente
 -> la liste des demandes contient toutes les invitations envoyées par le sommet en question.
 -> la liste de réception contient toutes les invitations reçues par le sommet en question.
 
-<br>
+<br><br><br><br>
 
 ```Mathematica
 
@@ -103,7 +103,7 @@ En effet  elle prend en paramètre deux individus x et y tel que : x a reçu une
 
 
 
-<br>
+<br><br><br>
 
 ```Mathematica
 Accept[x_,y_]:=Module[{u},With[{r=0},u=r; 
@@ -112,7 +112,7 @@ Which[Part[x,1]=="C"&& Part[y,1]=="Cb",u:= r+ 1,Part[x,1]=="C"&& Part[y,1]=="C",
 
 <br>
 Après chaque lien établi on doit impérativement mettre à jour le gain des deux individus
-<br>
+<br><br>
 
 
 ```Mathematica
@@ -126,7 +126,7 @@ NewGain[x_,n_]:= Module[{r,u},\[IndentingNewLine]Which[x=="R",u:=Part[n,2]+2,x==
 Comme nous avons mentionné plus haut chaque individu dans le réseau cherche à améliorer son gain. peu importe le type de la population et sa politique de gain. Établir  de nouveaux lien avec des utilisateur peut que améliorer le gain. 
 Pour cela chaque utilisateur envoit des invitations de connexion à chaque utilisateur qui possède un gain supérieur ou égale à son gain.
 ainsi chaque utilisateur assure une bonne qualité de lien avec ces futurs amis.
-<br>
+<br><br>
 
 ``` Mathematica
 For[k=1,k<= Length[l],k++,
@@ -157,7 +157,7 @@ l = {PropertyValue[ {population, 1}, VertexWeight],
 <h2>Accepter les invitations:</h2>
 Après l'étape d'envois des invitations , il est temps d'accepter les invitations reçus.
 Cette fois chaque type de population suit une logique différente  des autres comme nous avons mentionnés dans la section politique de gain afin d'améliorer son gain ou satisfaire ses intérêts  personnels ou professionnel.
-<br>
+<br><br>
 
 ``` Mathematica
 EdgeToAdd = {};

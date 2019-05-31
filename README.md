@@ -3,7 +3,7 @@
   <img src="https://storage.googleapis.com/kainofreelancerpictures/anes/sma.png" width="50%" title="logo">
 </p>
 this project is about modeling a small social network using the techniques of game theory.
-This social network which consists mainly of individuals wanting to establish links between them for personal or professional interests. The connection produced after the establishment of a link between two individuals change the structure of the social network by doing some actions allowed in the network like:
+This social network which consists mainly of individuals wanting to establish links between them for personal or professional interests. The connection produced after the establishment of a link between two individuals change the structure of the social network by doing some actions allowed in the network like :
 <br>
 - Add a friend
 <br>

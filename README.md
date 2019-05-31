@@ -101,12 +101,7 @@ En effet  elle prend en paramètre deux individus x et y tel que : x a reçu une
 <br>
 - Et enfin la population "S" peut accepter tous les individus.
 
-<br>
 
-```Mathematica
-Accept[x_,y_]:=Module[{u},With[{r=0},u=r; 
-Which[Part[x,1]=="C"&& Part[y,1]=="Cb",u:= r+ 1,Part[x,1]=="C"&& Part[y,1]=="C",u:= r+1,Part[x,1]=="C"&& Part[y,1]=="R",u:= r+1, Part[x,1]=="R"&& Part[y,1]=="R",u:=r+ 1,Part[x,1]=="R"&& Part[y,1]=="C",u:=r+ 1, Part[x,1]=="R"&& Part[y,1]=="Cb",u:=r+ 1,Part[x,1]=="R"&& Part[y,1]=="S"&&Part[y,2]>=10,u:= r+1,Part[x,1]=="S",u:=r+1];r];u]
-```
 
 <br>
 

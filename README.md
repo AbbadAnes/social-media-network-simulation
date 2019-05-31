@@ -214,6 +214,7 @@ For[i = 0, i <= Length [arcd],i++, m= Part[l2,Part[arcd,i]];If[Part[m,2]<monGain
 <h2>Évolution</h2>
 Enfin il est temps de voir l'évolution du réseau après les différentes actions réalisés par les utilisateurs.
 <br>
+
 ``` Mathematica
 population = EdgeDelete[population,_];
 film1 = FoldList[ Function[{g, arc}, EdgeAdd[g, arc]], population, EdgeToAdd];
@@ -221,6 +222,7 @@ population = EdgeAdd[population, EdgeToAdd];
 film2 = FoldList[ Function[{g, arc}, EdgeDelete[g, arc]], population, EdgeToDelete];
 BigFilm = Join[film1,film2];
 ```
+
 <h2>Simulation</h2>
 <p align="center">
   <img src="https://storage.googleapis.com/kainofreelancerpictures/anes/Nouvelle%20simulation%20%C3%A0%20deux%20cycles.gif" width="50%" title="logo">

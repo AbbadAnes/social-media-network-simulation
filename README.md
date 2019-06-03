@@ -9,7 +9,7 @@ This social network which consists mainly of individuals wanting to establish li
 <br>
 - accept / reject a friend
 <br>
-- delete friendshipe link
+- delete friendshipe link.
 <br>
 Network users using these actions to improve their earnings according to different policies for each population in the network.
 
